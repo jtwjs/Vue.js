@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <app-header v-bind:propsdata="num"></app-header>
+    <app-content v-on:pass="deliverNum"></app-content>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    /*
+     * 같은 레벨에서의 컴포넌트 통신 방법
+      상위 컴포넌트로 event의 인자로 값 전달 후
+      다시 하위(같은 레벨)의 컴포넌트에게 props로 전달
+     */
+    const appHeader = {
+      template: '<div>header</div>',
+      props: ['propsdata'],
+    };
+
+    const appContent = {
+      template: '<div>content<button v-on:click="passNum">pass</button></div>',
+      methods: {
+        passNum: function() {
+          this.$emit('pass', 10);
+        }
+      }
+    }
+
+    new Vue({
+      el: '#app',
+      components: {
+        'app-header': appHeader,
+        'app-content': appContent,
+      },
+      data: {
+        num: 0
+      },
+      methods: {
+        deliverNum: function(value) {
+          this.num = value;
+        }
+      }
+    })
+  </script>
+</body>
+</html>
