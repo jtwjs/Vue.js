@@ -19,7 +19,7 @@
       다시 하위(같은 레벨)의 컴포넌트에게 props로 전달
      */
     const appHeader = {
-      template: '<div>header</div>',
+      template: '<div>header{{ propsdata }}</div>',
       props: ['propsdata'],
     };
 
@@ -27,11 +27,10 @@
       template: '<div>content<button v-on:click="passNum">pass</button></div>',
       methods: {
         passNum: function() {
-          this.$emit('pass', 10);
+          this.$emit('pass', 50);
         }
-      }
-    }
-
+      },
+  }
     new Vue({
       el: '#app',
       components: {
