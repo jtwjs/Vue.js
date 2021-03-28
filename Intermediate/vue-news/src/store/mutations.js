@@ -5,7 +5,13 @@ export default {
     SET_JOBS(state, data) {
       state.jobs = data;
     },
-    SET_ASKS(state, data) {
-      state.asks = data;
+    SET_ASK(state, data) {
+      state.ask = data;
+    },
+    SET_USER(state, data) {
+      state.user = data;
+    },
+    SET_ITEM(state, data) {
+      state.item = data;
     }
 }

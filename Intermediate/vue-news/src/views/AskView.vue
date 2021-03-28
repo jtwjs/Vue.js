@@ -1,24 +1,20 @@
 <template>
-  <div>
-     <p v-for="(item, idx) in fetchedAsk" :key="idx">
-      <a :href="item.url">
-        {{ item.title }}
-      </a>
-     <span>{{ item.time_ago }} by {{item.user }} </span>
-    </p>
-  </div>
+  <ListItem/>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import ListItem from '../components/ListItem';
 
 export default {
+  components: {
+    ListItem,
+  },
   computed: {
 
     //#3
-    ...mapGetters([
-      'fetchedAsk', // store의 getters에 등록되있는 고대로 사용할 경우
-    ]),
+    // ...mapGetters([
+    //   'fetchedAsk', // store의 getters에 등록되있는 고대로 사용할 경우
+    // ]),
     // ...mapGetters({
     //   ask: 'fetchedAsk' // stroe의 getters에 등록되있는것을 이름을 바꿔서 사용할 경우
     // }),
@@ -34,12 +30,7 @@ export default {
     //   return this.$store.state.asks;
     // }
   },
-  created() {
-    this.$store.dispatch('FETCH_ASKS');
-  }
 }
 </script>
 
-<style>
 
-</style>

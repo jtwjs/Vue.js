@@ -1,29 +1,40 @@
 <template>
-  <div>
-    <p v-for="(item, idx) in fetchedNews" :key="idx">
-      <a :href="item.url">
-        {{ item.title }}
-      </a>
-     <span>{{ item.time_ago }} by {{item.user }} </span>
-    </p>
-  </div>
+  <ListItem/>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import ListItem from '../components/ListItem';
 
-export default {
-  computed: {
-    ...mapGetters([
-      'fetchedNews'
-    ])
+export default {  
+  components: {
+    ListItem,
   },
-  created() {
-  this.$store.dispatch('FETCH_NEWS');
- }
 }
 </script>
 
-<style>
-
+<style scoped>
+ .news-list {
+   margin: 0;
+   padding: 0;
+ }
+ .post {
+   display: flex;
+   align-items: center;
+   border-bottom: 1px solid #eee;
+   list-style: none;
+ }
+ .points {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 80px;
+   height: 60px;
+   color: #42b883;
+ }
+ .news-title {
+   margin: 0;
+ }
+ .link-text {
+   color: #828282;
+ }
 </style>
