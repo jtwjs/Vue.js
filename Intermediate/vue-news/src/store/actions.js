@@ -3,8 +3,9 @@ import {fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo, fetchItem} fr
 export default {
     FETCH_NEWS({commit}) {
       fetchNewsList()
-        .then(({data}) => {
-          commit('SET_NEWS', data);
+        .then(res => {
+          commit('SET_NEWS', res.data);
+          return res;
         })
         .catch(err => {
           console.log(err);
