@@ -41,17 +41,7 @@
 export default {
    computed: {
      listItems() {
-      const name = this.$route.name;
-      switch(name) {
-        case 'news': 
-          return this.$store.state.news;
-
-        case 'jobs': 
-          return this.$store.state.jobs;
-
-        case 'ask':
-          return this.$store.state.ask;
-      }   
+       return this.$store.state.list;
      }
   },
 }
