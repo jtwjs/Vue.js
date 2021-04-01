@@ -33,7 +33,7 @@ export default {
       this.loadingStatus = false;
     }
   },
-  create() {
+  created() {
     bus.$on('start:spinner', this.startSpinner);
     bus.$on('end:spinner', this.endSpinner);
   },
