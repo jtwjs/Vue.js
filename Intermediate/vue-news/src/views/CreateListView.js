@@ -11,6 +11,7 @@ export default function createListView(name) {
       // #1
         store.dispatch('FETCH_LIST', to.name)
         .then(() => { // #5
+    
           next();
         })
         .catch(err => console.log(err));
