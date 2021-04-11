@@ -1,9 +1,17 @@
 <template>
-  <div>Login</div>
+  <div>
+    <h1>Login Page</h1>
+    <LoginForm />
+  </div>
 </template>
 
 <script>
-export default {};
+import LoginForm from '@/components/LoginForm.vue';
+export default {
+  components: {
+    LoginForm,
+  },
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style></style>
