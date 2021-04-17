@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="form-container">
     <h1>생성페이지</h1>
     <PostAddForm />
   </div>
