@@ -6,6 +6,7 @@
       <ul v-else>
         <PostListItem
           v-for="postItem in postItems"
+          @refresh="refresh"
           :key="postItem._id"
           :postItem="postItem"
         />
@@ -36,13 +37,12 @@ export default {
   methods: {
     async fetchData() {
       this.isLoading = true;
-      const {
-        data: { posts },
-      } = await fetchPosts();
-      console.log(posts);
+      const { data } = await fetchPosts();
       this.isLoading = false;
-
-      this.postItems = posts;
+      this.postItems = data.posts;
+    },
+    refresh() {
+      this.fetchData();
     },
   },
   created() {
