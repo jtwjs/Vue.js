@@ -10,7 +10,7 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/login',
+      redirect: '/main',
     },
     {
       path: '/login',
@@ -23,6 +23,10 @@ export default new VueRouter({
     {
       path: '/main',
       component: () => import('@/views/MainPage.vue'),
+    },
+    {
+      path: '/add',
+      component: () => import('@/views/PostAddPage.vue'),
     },
     {
       path: '*',
